@@ -1,7 +1,7 @@
 import typescript from 'rollup-plugin-typescript2';
-import babel from 'rollup-plugin-babel';
+import { babel } from '@rollup/plugin-babel';
 import { terser } from 'rollup-plugin-terser';
-import replace from 'rollup-plugin-replace';
+import replace from '@rollup/plugin-replace';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import multiInput from 'rollup-plugin-multi-input';
@@ -19,7 +19,7 @@ const isProduction = process.env.NODE_ENV === 'production';
 const BABEL_CONFIG = {
   extensions: ['.js', '.ts'],
   babelrc: false, // 使用独立配置，rollup依赖的babelrc配置冲突
-  runtimeHelpers: true,
+  babelHelpers: 'runtime',
   // 备注：无需external-helpers， 用transform-runtime方案替代
   // externalHelpers: true,
   exclude: 'node_modules/**',
@@ -164,7 +164,16 @@ export default [
         },
       }),
       babel(BABEL_CONFIG),
+      /**
+       * TODO:comments：the next major version maybe remove
+       * En：Plugin replace: @rollup/plugin-replace: 'preventAssignment' currently defaults to false.
+       * It is recommended to set this option to `true`,
+       * as the next major version will default this option to `true`.
+       * Zh：插件替换：@rollup/plugin-replace：“preventAssignment”当前默认为 false。
+       * 建议将此选项设置为 `true`，因为下一个主要版本将默认此选项为 `true`。
+       */
       replace({
+        preventAssignment: true,
         ENV: JSON.stringify(process.env.NODE_ENV || 'development'),
       }),
       isProduction &&

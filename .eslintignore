@@ -1,0 +1,5 @@
+dist
+lib
+test
+package.json
+node_modules

@@ -1,0 +1,18 @@
+node_modules
+npm-debug.log
+coverage/
+run/
+.DS_Store
+config.local.js
+# 构建产物
+dist/
+doc/
+cjs/
+umd/
+esm/
+@types/
+_tmp
+.entry
+.node
+.vscode
+__docdash

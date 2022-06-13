@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>isString.js - Utils Doc</title>
+    <title>formatDate.js - Utils Doc</title>
     
     <meta name="description" content="常用工具函数库" />
     
@@ -40,7 +40,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">isString.js</h1>
+    <h1 class="page-title">formatDate.js</h1>
     
 
     
@@ -50,24 +50,34 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
- * @param {*} input 需要检查的输入
+            <pre class="prettyprint source linenums"><code>import dayjs from 'dayjs';
+// 获取当前系统时间戳
+var timestamp = String(new Date().valueOf());
+// 是否有效日期
+function isValidDate(date) {
+    return dayjs(date).isValid();
+}
+/**
+ * @param {string | number} date=timestamp 日期
+ * @param {string} [format=YYYY-MM-DD HH:mm:ss]  时间格式
  *
  * @example
  *
- * import { isString } from 'jairwin-utils/esm/isString';
+ * import { formatDate } from 'jairwin-utils/esm/formatDate';
  *
- * isString()
- * // => false
- *
- * isString('a')
- * // => true
+ * formatDate(new Date().valueOf());
  *
  */
-export function isString(input) {
-    return typeof input === 'string' || input instanceof String;
+export function formatDate(date, format) {
+    if (date === void 0) { date = timestamp; }
+    if (format === void 0) { format = 'YYYY-MM-DD HH:mm:ss'; }
+    // 非法日期格式，直接输出
+    if (!isValidDate(date)) {
+        return date;
+    }
+    return dayjs(Number(date)).format(format);
 }
-//# sourceMappingURL=isString.js.map</code></pre>
+//# sourceMappingURL=formatDate.js.map</code></pre>
         </article>
     </section>
 

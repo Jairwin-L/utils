@@ -1,5 +1,5 @@
 /**
- * @param {string} input 需要判断的值
+ * @param {*} input 需要检查的输入
  *
  * @example
  *
@@ -12,6 +12,6 @@
  * // => true
  *
  */
-export function isString(input: string) {
-  return typeof input === 'string';
+ export function isString(input: any) {
+  return typeof input === 'string' || input instanceof String;
 }

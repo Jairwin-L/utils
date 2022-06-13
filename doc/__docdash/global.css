@@ -1,28 +1,17 @@
-/* docdash 全局样式 */
-.g-tag {
-  background: #108ee9;
-  color: #fff;
-  padding: 4px;
-  border-radius: 4px;
-  font-size: 14px;
-  position: relative;
+/* docdash 样式覆盖 */
+a {
+  color: #ddaeb6;
+}
+nav > ul > li > a {
+  color: #ffc0cb;
+}
+nav ul a:active {
+  color: #fa88fd;
+}
+nav > h2 > a {
+  color: #ffc0cb !important;
+}
+nav h3 {
+  color: #f48c8c;
 }
 
-.g-tag:hover::after {
-  content: '常用工具函数';
-  position: absolute;
-  left: 105%;
-  top: 0;
-  min-width: 300px;
-  border: 1px #aaaaaa solid;
-  border-radius: 10px;
-  background-color: #ffffcc;
-  padding: 12px;
-  color: #000000;
-  font-size: 12px;
-  z-index: 1;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
-}

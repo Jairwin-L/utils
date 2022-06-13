@@ -3,7 +3,13 @@
 <head>
     
     <meta charset="utf-8">
-    <title>Global - Documentation</title>
+    <title>Global - Utils Doc</title>
+    
+    <meta name="description" content="常用工具函数库" />
+    
+        <meta name="keywords" content="js, JavaScript, lib, fed" />
+        <meta name="keyword" content="js, JavaScript, lib, fed" />
+    
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -29,7 +35,7 @@
     
     <input type="text" id="nav-search" placeholder="Search" />
     
-    <h2><a href="index.html">Home</a></h2><h2><a href="https://www.npmjs.com/package/jairwin-utils" target="_blank" class="menu-item" id="forum_link" >NPM</a></h2><h2><a href="https://utils-doc.vercel.app" target="_blank" class="menu-item" id="website_link" >DOC</a></h2><h3>Global</h3><ul><li><a href="global.html#downloadFileUseJS">downloadFileUseJS</a></li><li><a href="global.html#isArray">isArray</a></li><li><a href="global.html#isString">isString</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://www.npmjs.com/package/jairwin-utils" target="_blank" class="menu-item" id="forum_link" >NPM</a></h2><h3>Global</h3><ul><li><a href="global.html#downloadFileUseJS">downloadFileUseJS</a></li><li><a href="global.html#isArray">isArray</a></li><li><a href="global.html#isString">isString</a></li></ul>
 </nav>
 
 <div id="main">
@@ -126,7 +132,7 @@
 
     
 
-    <h4 class="name" id="downloadFileUseJS"><span class="type-signature"></span>downloadFileUseJS<span class="signature">(blob)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="downloadFileUseJS"><span class="type-signature"></span>downloadFileUseJS<span class="signature">(blob, name, prefix)</span><span class="type-signature"></span></h4>
 
     
 
@@ -138,7 +144,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="downloadFile.js.html">downloadFile.js</a>, <a href="downloadFile.js.html#line10">line 10</a>
+        <a href="downloadFile.js.html">downloadFile.js</a>, <a href="downloadFile.js.html#line15">line 15</a>
     </li></ul></dd>
     
 
@@ -187,7 +193,9 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>downloadFileUseJS(data)
+    <pre class="prettyprint"><code>import { downloadFileUseJS } from 'jairwin-utils/esm/downloadFileUseJS';
+
+downloadFileUseJS(data)
 
 downloadFileUseJS(data, '测试文件', 'xls')</code></pre>
 
@@ -208,6 +216,8 @@ downloadFileUseJS(data, '测试文件', 'xls')</code></pre>
 
         
 
+        
+        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -234,8 +244,70 @@ downloadFileUseJS(data, '测试文件', 'xls')</code></pre>
             
 
             
+                <td class="default">
+                
+                </td>
+            
 
             <td class="description last"><p><code>file</code>文件流</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    <code>文件</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>文件名称</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>prefix</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    <code>xls</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>文件名称后缀</p></td>
         </tr>
 
     
@@ -277,7 +349,7 @@ downloadFileUseJS(data, '测试文件', 'xls')</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="isArray.js.html">isArray.js</a>, <a href="isArray.js.html#line17">line 17</a>
+        <a href="isArray.js.html">isArray.js</a>, <a href="isArray.js.html#line20">line 20</a>
     </li></ul></dd>
     
 
@@ -330,7 +402,9 @@ downloadFileUseJS(data, '测试文件', 'xls')</code></pre>
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>isArray([])
+    <pre class="prettyprint"><code>import { isArray } from 'jairwin-utils/esm/isArray';
+
+isArray([])
 // => true
 
 isArray({})
@@ -432,7 +506,7 @@ isArray({})
 
     
 
-    <h4 class="name" id="isString"><span class="type-signature"></span>isString<span class="signature">(v)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="isString"><span class="type-signature"></span>isString<span class="signature">(input)</span><span class="type-signature"></span></h4>
 
     
 
@@ -444,7 +518,7 @@ isArray({})
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="isString.js.html">isString.js</a>, <a href="isString.js.html#line12">line 12</a>
+        <a href="isString.js.html">isString.js</a>, <a href="isString.js.html#line15">line 15</a>
     </li></ul></dd>
     
 
@@ -493,7 +567,9 @@ isArray({})
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>isString()
+    <pre class="prettyprint"><code>import { isString } from 'jairwin-utils/esm/isString';
+
+isString()
 // => false
 
 isString('a')
@@ -527,7 +603,7 @@ isString('a')
 
         <tr>
             
-                <td class="name"><code>v</code></td>
+                <td class="name"><code>input</code></td>
             
 
             <td class="type">

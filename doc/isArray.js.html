@@ -3,7 +3,13 @@
 <head>
     
     <meta charset="utf-8">
-    <title>isArray.js - Documentation</title>
+    <title>isArray.js - Utils Doc</title>
+    
+    <meta name="description" content="常用工具函数库" />
+    
+        <meta name="keywords" content="js, JavaScript, lib, fed" />
+        <meta name="keyword" content="js, JavaScript, lib, fed" />
+    
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -29,7 +35,7 @@
     
     <input type="text" id="nav-search" placeholder="Search" />
     
-    <h2><a href="index.html">Home</a></h2><h2><a href="https://www.npmjs.com/package/jairwin-utils" target="_blank" class="menu-item" id="forum_link" >NPM</a></h2><h2><a href="https://utils-doc.vercel.app" target="_blank" class="menu-item" id="website_link" >DOC</a></h2><h3>Global</h3><ul><li><a href="global.html#downloadFileUseJS">downloadFileUseJS</a></li><li><a href="global.html#isArray">isArray</a></li><li><a href="global.html#isString">isString</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://www.npmjs.com/package/jairwin-utils" target="_blank" class="menu-item" id="forum_link" >NPM</a></h2><h3>Global</h3><ul><li><a href="global.html#downloadFileUseJS">downloadFileUseJS</a></li><li><a href="global.html#isArray">isArray</a></li><li><a href="global.html#isString">isString</a></li></ul>
 </nav>
 
 <div id="main">
@@ -49,15 +55,18 @@
 }
 /**
  * 判断一个给定的值是否是数组。在新的浏览器环境中使用 Array.isArray，否则使用 polyfill
- * @param v {any} 需要判断的值
+ * @param {any} v 需要判断的值
  *
  * @example
+ *
+ * import { isArray } from 'jairwin-utils/esm/isArray';
  *
  * isArray([])
  * // => true
  *
  * isArray({})
  * // => false
+ *
  * @returns {Boolean} 是数组则返回 true
  */
 export function isArray(v) {

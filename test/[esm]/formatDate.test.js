@@ -1,7 +1,7 @@
 import { expect } from 'vitest';
 import { formatDate } from '../../src/formatDate';
 
-describe('[cjs]formatDate', () => {
+describe('[esm]formatDate', () => {
   it('验证某一时间戳：1655112036395', () => {
     const input = 1655020800000;
     const actual = formatDate(input, 'YYYY-MM-DD HH:mm:ss');

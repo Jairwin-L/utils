@@ -92,6 +92,7 @@ pnpm run test
 
 ## refs
 
+- [JSDoc Guide](https://yuri4ever.github.io/jsdoc/)
 - 生成文档: [docdash](https://github.com/clenemt/docdash)
 - [JSDOC](https://jsdoc.app/index.html#block-tags)
 - [docdash范例](http://clenemt.github.io/docdash/utils_logger.js.html)

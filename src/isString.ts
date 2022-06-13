@@ -1,6 +1,9 @@
 /**
- * @param v {string} 需要判断的值
+ * @param {string} input 需要判断的值
+ *
  * @example
+ *
+ * import { isString } from 'jairwin-utils/esm/isString';
  *
  * isString()
  * // => false

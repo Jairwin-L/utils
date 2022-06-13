@@ -1,6 +1,11 @@
 /**
- * @param blob {Blob} `file`文件流
+ * @param {Blob} blob `file`文件流
+ * @param {string} name=文件 文件名称
+ * @param {string} prefix=xls 文件名称后缀
+ *
  * @example
+ *
+ * import { downloadFileUseJS } from 'jairwin-utils/esm/downloadFileUseJS';
  *
  * downloadFileUseJS(data)
  *

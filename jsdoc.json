@@ -32,28 +32,17 @@
     "search": true,
     "navLevel": 2,
     "scripts": ["__docdash/global.css"],
-    "sectionOrder": [
-      "Modules",
-      "Classes",
-      "Namespaces",
-      "Externals",
-      "Events",
-      "Mixins",
-      "Tutorials",
-      "Interfaces"
-    ],
+    "meta": {
+      "title": "Utils Doc",
+      "description": "常用工具函数库",
+      "keyword": "js, JavaScript, lib, fed"
+    },
     "menu": {
       "NPM": {
         "href": "https://www.npmjs.com/package/jairwin-utils",
         "target": "_blank",
         "class": "menu-item",
         "id": "forum_link"
-      },
-			"DOC": {
-        "href": "https://utils-doc.vercel.app",
-        "target": "_blank",
-        "class": "menu-item",
-        "id": "website_link"
       }
     }
   }

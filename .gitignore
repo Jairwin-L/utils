@@ -5,12 +5,10 @@ run/
 .DS_Store
 config.local.js
 # 构建产物
-dist/
-doc/
-cjs/
-umd/
-esm/
-@types/
+cjs
+umd
+esm
+@types
 _tmp
 .entry
 .node

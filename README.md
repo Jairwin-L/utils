@@ -92,6 +92,9 @@ pnpm run test
 
 ## refs
 
+- 选择rollup原因（仅供参考）
+  - [为什么说rollup比webpack更适合打包库](https://segmentfault.com/a/1190000038708512)
+  - [rollup打包产物解析及原理（对比webpack）](https://juejin.cn/post/7054752322269741064)
 - 生成文档: [docdash](https://github.com/clenemt/docdash)
 - [JSDOC](https://jsdoc.app/index.html#block-tags)
 - [docdash范例](http://clenemt.github.io/docdash/utils_logger.js.html)

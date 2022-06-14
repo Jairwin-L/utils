@@ -1,14 +1,16 @@
 import dayjs from 'dayjs';
 // 获取当前系统时间戳
-const timestamp = String(new Date().valueOf());
+const timestamp = new Date().valueOf();
 
 // 是否有效日期
-function isValidDate(date: string): boolean {
+function isValidDate(date: number): boolean {
   return dayjs(date).isValid();
 }
 /**
- * @param {string | number} date=timestamp 日期
- * @param {string} [format=YYYY-MM-DD HH:mm:ss]  时间格式
+ * 时间戳格式化输出
+ * @param {string | number} timeStamp=timestamp 日期
+ * @param {string} [format=YYYY-MM-DD HH:mm:ss] 时间格式
+ * @return {string} 指定时间格式
  *
  * @example
  *
@@ -18,10 +20,10 @@ function isValidDate(date: string): boolean {
  *
  */
 
-export function formatDate(date: string = timestamp, format = 'YYYY-MM-DD HH:mm:ss'): string {
-  // 非法日期格式，直接输出
-  if (!isValidDate(date)) {
-    return date;
+export function formatDate(timeStamp: number = timestamp, format = 'YYYY-MM-DD HH:mm:ss'): string {
+  // 非时间戳格式，直接输出
+  if (!isValidDate(timeStamp)) {
+    return String(timeStamp);
   }
-  return dayjs(Number(date)).format(format);
+  return dayjs(timeStamp).format(format);
 }

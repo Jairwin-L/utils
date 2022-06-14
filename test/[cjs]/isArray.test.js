@@ -1,5 +1,5 @@
 import { expect } from 'vitest';
-import { isArray } from '../../src/isArray';
+import { isArray } from '../../cjs/isArray';
 
 describe('[cjs]isArray', () => {
   var arr1 = [];

@@ -1,7 +1,7 @@
 import { expect } from 'vitest';
-import { isString } from '../../src/isString';
+import { isString } from '../../esm/isString';
 
-describe('isString', () => {
+describe('[esm]isString', () => {
   function myObject() {}
   it('应该为 true', () => {
     expect(isString(new String('abc'))).to.be.ok;

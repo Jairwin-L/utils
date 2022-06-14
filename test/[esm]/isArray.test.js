@@ -1,7 +1,7 @@
 import { expect } from 'vitest';
-import { isArray } from '../../src/isArray';
+import { isArray } from '../../esm/isArray';
 
-describe('isArray', () => {
+describe('[esm]isArray', () => {
   var arr1 = [];
   var arr2 = new Array(2);
 

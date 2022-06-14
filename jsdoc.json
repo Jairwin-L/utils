@@ -38,6 +38,12 @@
       "keyword": "js, JavaScript, lib, fed"
     },
     "menu": {
+      "Github": {
+        "href": "https://github.com/Jairwin-L/utils",
+        "target": "_blank",
+        "class": "menu-item",
+        "id": "forum_link"
+      },
       "NPM": {
         "href": "https://www.npmjs.com/package/jairwin-utils",
         "target": "_blank",

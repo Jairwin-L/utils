@@ -1,5 +1,5 @@
 import { expect } from 'vitest';
-import { isString } from '../../src/isString';
+import { isString } from '../../cjs/isString';
 
 describe('[cjs]isString', () => {
   function myObject() {}

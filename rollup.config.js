@@ -148,6 +148,7 @@ export default [
       sourceMap: 'inline',
       globals: {
         tslib: 'tslib',
+        dayjs: 'dayjs'
       },
     },
     plugins: [

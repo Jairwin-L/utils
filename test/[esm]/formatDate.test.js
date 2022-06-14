@@ -3,7 +3,7 @@ import { formatDate } from '../../esm/formatDate';
 
 const timestamp = 1655020800000;
 
-describe('[cjs]formatDate', () => {
+describe('[esm]formatDate', () => {
   it('验证某一时间戳：1655112036395', () => {
     const input = timestamp;
     const actual = formatDate(input, 'YYYY-MM-DD HH:mm:ss');

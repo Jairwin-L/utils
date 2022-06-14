@@ -6,6 +6,7 @@ import AutoImport from 'unplugin-auto-import/vite';
 export default defineConfig({
   test: {
     globals: true,
+    environment: 'jsdom',
     coverage: {
       statements: 94,
       branches: 100,

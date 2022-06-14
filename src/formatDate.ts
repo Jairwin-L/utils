@@ -8,7 +8,7 @@ function isValidDate(date: number): boolean {
 }
 /**
  * 时间戳格式化输出
- * @param {string | number} timeStamp=timestamp 日期
+ * @param {string} timeStamp=timestamp 日期
  * @param {string} [format=YYYY-MM-DD HH:mm:ss] 时间格式
  * @return {string} 指定时间格式
  *
@@ -23,6 +23,7 @@ function isValidDate(date: number): boolean {
 export function formatDate(timeStamp: number = timestamp, format = 'YYYY-MM-DD HH:mm:ss'): string {
   // 非时间戳格式，直接输出
   if (!isValidDate(timeStamp)) {
+    console.log(`非时间戳格式，直接输出----->：`, timeStamp);
     return String(timeStamp);
   }
   return dayjs(timeStamp).format(format);

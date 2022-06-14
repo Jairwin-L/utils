@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>formatDate.js - Utils Doc</title>
+    <title>easySessionStorage.js - Utils Doc</title>
     
     <meta name="description" content="常用工具函数库" />
     
@@ -40,7 +40,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">formatDate.js</h1>
+    <h1 class="page-title">easySessionStorage.js</h1>
     
 
     
@@ -50,37 +50,61 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import dayjs from 'dayjs';
-// 获取当前系统时间戳
-var timestamp = new Date().valueOf();
-// 是否有效日期
-function isValidDate(date) {
-    return dayjs(date).isValid();
-}
+            <pre class="prettyprint source linenums"><code>import { jsonParseSafely } from './jsonParseSafely';
 /**
- * 时间戳格式化输出
- * @param {string} timeStamp=timestamp 日期
- * @param {string} [format=YYYY-MM-DD HH:mm:ss] 时间格式
- * @return {string} 指定时间格式
+ * 通用 easySessionStorage
  *
  * @example
  *
- * import { formatDate } from 'jairwin-utils/esm/formatDate';
+ * import { easySessionStorage } from 'jairwin-utils/esm/easySessionStorage';
  *
- * formatDate(new Date().valueOf());
+ * // 写入
+ * easySessionStorage.setItem('key', { a: 'a' });
  *
+ * // 读取
+ * easySessionStorage.getItem('key') || {};
+ *
+ * // 删除指定key
+ * easySessionStorage.removeItem('key');
+ *
+ * // 全部清除
+ * easySessionStorage.clear();
  */
-export function formatDate(timeStamp, format) {
-    if (timeStamp === void 0) { timeStamp = timestamp; }
-    if (format === void 0) { format = 'YYYY-MM-DD HH:mm:ss'; }
-    // 非时间戳格式，直接输出
-    if (!isValidDate(timeStamp)) {
-        console.log("\u975E\u65F6\u95F4\u6233\u683C\u5F0F\uFF0C\u76F4\u63A5\u8F93\u51FA----->\uFF1A", timeStamp);
-        return String(timeStamp);
+export var easySessionStorage = {
+    /**
+     * setItem
+     *
+     * @param {string} key key值
+     * @param {*} value 写入数据
+     */
+    setItem: function (key, value) {
+        window.sessionStorage.setItem(key, JSON.stringify(value));
+    },
+    /**
+     * getItem
+     *
+     * @param {key} key值 读取数据
+     */
+    getItem: function (key) {
+        // @ts-ignore
+        return jsonParseSafely(window.sessionStorage.getItem(key));
+    },
+    /**
+     * removeItem
+     *
+     * @param {key} key值 删除数据
+     */
+    removeItem: function (key) {
+        window.sessionStorage.removeItem(key);
+    },
+    /**
+     * clear 删除数据
+     */
+    clear: function () {
+        window.sessionStorage.clear();
     }
-    return dayjs(timeStamp).format(format);
-}
-//# sourceMappingURL=formatDate.js.map</code></pre>
+};
+//# sourceMappingURL=easySessionStorage.js.map</code></pre>
         </article>
     </section>
 

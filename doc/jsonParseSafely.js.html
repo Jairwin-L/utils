@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>formatDate.js - Utils Doc</title>
+    <title>jsonParseSafely.js - Utils Doc</title>
     
     <meta name="description" content="常用工具函数库" />
     
@@ -40,7 +40,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">formatDate.js</h1>
+    <h1 class="page-title">jsonParseSafely.js</h1>
     
 
     
@@ -50,37 +50,30 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import dayjs from 'dayjs';
-// 获取当前系统时间戳
-var timestamp = new Date().valueOf();
-// 是否有效日期
-function isValidDate(date) {
-    return dayjs(date).isValid();
-}
-/**
- * 时间戳格式化输出
- * @param {string} timeStamp=timestamp 日期
- * @param {string} [format=YYYY-MM-DD HH:mm:ss] 时间格式
- * @return {string} 指定时间格式
+            <pre class="prettyprint source linenums"><code>/**
+ * 危险的 JS 内置函数：JSON.parse
+ * @param {string} value 需要检查的输入
+ * @param {*} parseFailedDefaultValue={} 解析失败默认返回`{}`
+ * @returns {*} 解析失败默认返回{}，支持自定义
  *
  * @example
  *
- * import { formatDate } from 'jairwin-utils/esm/formatDate';
+ * import { downloadFileUseJS } from 'jairwin-utils/esm/downloadFileUseJS';
  *
- * formatDate(new Date().valueOf());
+ * jsonParseSafely(window.sessionStorage.getItem(key))
  *
  */
-export function formatDate(timeStamp, format) {
-    if (timeStamp === void 0) { timeStamp = timestamp; }
-    if (format === void 0) { format = 'YYYY-MM-DD HH:mm:ss'; }
-    // 非时间戳格式，直接输出
-    if (!isValidDate(timeStamp)) {
-        console.log("\u975E\u65F6\u95F4\u6233\u683C\u5F0F\uFF0C\u76F4\u63A5\u8F93\u51FA----->\uFF1A", timeStamp);
-        return String(timeStamp);
+export function jsonParseSafely(value, parseFailedDefaultValue) {
+    if (parseFailedDefaultValue === void 0) { parseFailedDefaultValue = {}; }
+    try {
+        return JSON.parse(value);
     }
-    return dayjs(timeStamp).format(format);
+    catch (error) {
+        console.log('jsonParseSafely----->：', error);
+        return parseFailedDefaultValue;
+    }
 }
-//# sourceMappingURL=formatDate.js.map</code></pre>
+//# sourceMappingURL=jsonParseSafely.js.map</code></pre>
         </article>
     </section>
 

@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>isArray.js - Utils Doc</title>
+    <title>appendQueriesToUrl.js - Utils Doc</title>
     
     <meta name="description" content="工具函数" />
     
@@ -40,7 +40,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">isArray.js</h1>
+    <h1 class="page-title">appendQueriesToUrl.js</h1>
     
 
     
@@ -50,32 +50,47 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>function isArrayPolyfill(v) {
-    return Object.prototype.toString.call(v) === '[object Array]';
+            <pre class="prettyprint source linenums"><code>import { stringify } from "./stringify";
+/**
+  * 向URL中追加query
+  *
+  * @private
+  * @param url
+  * @param query query字符串，如"a=12"
+  */
+function appendQueryToUrl(url, query) {
+    if (!url || !query) {
+        return url;
+    }
+    var symbol = url &amp;&amp; url.indexOf('?') > -1 ? '&amp;' : '?';
+    var len = url.length;
+    if (url[len - 1] === '?' || url[len - 1] === '&amp;') {
+        symbol = '';
+    }
+    var result = "".concat(url).concat(symbol).concat(query);
+    return result;
 }
 /**
- * 判断一个给定的值是否是数组。在新的浏览器环境中使用 Array.isArray，否则使用 polyfill
- * @param {any} v 需要判断的值
- *
- * @example
- *
- * import { isArray } from 'jairwin-utils/esm/isArray';
- *
- * isArray([])
- * // => true
- *
- * isArray({})
- * // => false
- *
- * @returns {Boolean} 是数组则返回 true
- */
-export function isArray(v) {
-    if (typeof Array.isArray === 'function') {
-        return Array.isArray(v);
+  * 向url中添加query
+  * 备注: key/value均会进行一次encodeURIComponent
+  * @param {string} url
+  * @param {object} params kv键值对，如: {chInf: 'abc'};
+  *
+  * @example
+  *
+  * import { appendQueriesToUrl } from 'jairwin-utils/esm/appendQueriesToUrl';
+  *
+  * appendQueriesToUrl('https://example.com', { a: 'b', c: 'd' })
+  *
+  * // => 'https://example.com?a=b&amp;c=d'
+  */
+export function appendQueriesToUrl(url, params) {
+    if (!url || !params) {
+        return url;
     }
-    return isArrayPolyfill(v);
+    return appendQueryToUrl(url, stringify(params));
 }
-//# sourceMappingURL=isArray.js.map</code></pre>
+//# sourceMappingURL=appendQueriesToUrl.js.map</code></pre>
         </article>
     </section>
 

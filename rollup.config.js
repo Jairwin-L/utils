@@ -204,7 +204,10 @@ export default [
       sourceMap: 'inline',
       globals: {
         tslib: 'tslib',
-        dayjs: 'dayjs'
+        dayjs: 'dayjs',
+        'lodash.isstring': 'lodash.isstring',
+        'lodash.isplainobject': 'lodash.isplainobject',
+        'lodash.isfunction': 'lodash.isfunction',
       },
     },
     plugins: [

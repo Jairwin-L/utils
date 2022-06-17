@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>Global - Utils Doc</title>
     
-    <meta name="description" content="常用工具函数库" />
+    <meta name="description" content="工具函数" />
     
         <meta name="keywords" content="js, JavaScript, lib, fed" />
         <meta name="keyword" content="js, JavaScript, lib, fed" />
@@ -35,7 +35,7 @@
     
     <input type="text" id="nav-search" placeholder="Search" />
     
-    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/Jairwin-L/utils" target="_blank" class="menu-item" id="forum_link" >Github</a></h2><h2><a href="https://www.npmjs.com/package/jairwin-utils" target="_blank" class="menu-item" id="forum_link" >NPM</a></h2><h3>Global</h3><ul><li><a href="global.html#box">box</a></li><li><a href="global.html#downloadFileUseJS">downloadFileUseJS</a></li><li><a href="global.html#easySessionStorage">easySessionStorage</a></li><li><a href="global.html#formatDate">formatDate</a></li><li><a href="global.html#isArray">isArray</a></li><li><a href="global.html#isString">isString</a></li><li><a href="global.html#jsonParseSafely">jsonParseSafely</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/Jairwin-L/utils" target="_blank" class="menu-item" id="forum_link" >Github</a></h2><h2><a href="https://www.npmjs.com/package/jairwin-utils" target="_blank" class="menu-item" id="forum_link" >NPM</a></h2><h3>Global</h3><ul><li><a href="global.html#appendQueriesToUrl">appendQueriesToUrl</a></li><li><a href="global.html#box">box</a></li><li><a href="global.html#downloadFileUseJS">downloadFileUseJS</a></li><li><a href="global.html#easySessionStorage">easySessionStorage</a></li><li><a href="global.html#formatDate">formatDate</a></li><li><a href="global.html#isArray">isArray</a></li><li><a href="global.html#jsonParseSafely">jsonParseSafely</a></li><li><a href="global.html#parse">parse</a></li><li><a href="global.html#stringify">stringify</a></li></ul>
 </nav>
 
 <div id="main">
@@ -210,6 +210,175 @@ easySessionStorage.clear();</code></pre>
 
     
         <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id="appendQueriesToUrl"><span class="type-signature"></span>appendQueriesToUrl<span class="signature">(url, params)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="appendQueriesToUrl.js.html">appendQueriesToUrl.js</a>, <a href="appendQueriesToUrl.js.html#line35">line 35</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>向url中添加query<br>
+备注: key/value均会进行一次encodeURIComponent</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>import { appendQueriesToUrl } from 'jairwin-utils/esm/appendQueriesToUrl';
+
+appendQueriesToUrl('https://example.com', { a: 'b', c: 'd' })
+
+// => 'https://example.com?a=b&amp;c=d'</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>url</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>params</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>kv键值对，如: {chInf: 'abc'};</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         
             
@@ -970,149 +1139,6 @@ isArray({})
 
     
 
-    <h4 class="name" id="isString"><span class="type-signature"></span>isString<span class="signature">(input)</span><span class="type-signature"></span></h4>
-
-    
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="isString.js.html">isString.js</a>, <a href="isString.js.html#line15">line 15</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <h5>Example</h5>
-    
-    <pre class="prettyprint"><code>import { isString } from 'jairwin-utils/esm/isString';
-
-isString()
-// => false
-
-isString('a')
-// => true</code></pre>
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>input</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">*</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>需要检查的输入</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
     <h4 class="name" id="jsonParseSafely"><span class="type-signature"></span>jsonParseSafely<span class="signature">(value, parseFailedDefaultValue)</span><span class="type-signature"> &rarr; {*}</span></h4>
 
     
@@ -1299,6 +1325,541 @@ jsonParseSafely(window.sessionStorage.getItem(key))</code></pre>
     <dd>
         
 <span class="param-type">*</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="parse"><span class="type-signature"></span>parse<span class="signature">(qs, sep, eq, options)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="parse.js.html">parse.js</a>, <a href="parse.js.html#line13">line 13</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>解析 URL query string</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>qs</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>需要解析的 URL query string</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>sep</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>用于界定键值对的子字符串。默认为 '&amp;'</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>eq</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>用于界定 key 和 value 的子字符串。默认为 '='</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>自定义解析行为</p>
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>decodeURIComponent</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>自定义解码</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="stringify"><span class="type-signature"></span>stringify<span class="signature">(obj, sep, eq, options)</span><span class="type-signature"> &rarr; {string}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="stringify.js.html">stringify.js</a>, <a href="stringify.js.html#line49">line 49</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>将对象转换成 query string</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>stringify({})
+// => ''
+
+stringify({key: 'value', undef: undefined })
+// => 'key=value&amp;undef='</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>obj</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>需要序列化成 URL query string 的对象。属性值支持数组。</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>sep</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>用于界定键值对的子字符串。默认为 '&amp;'</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>eq</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>用于界定 key 和 value 的子字符串。默认为 '='</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>自定义编码行为</p>
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>encodeURIComponent</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>用于自定义的 encodeURIComponent</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
 
 
     </dd>

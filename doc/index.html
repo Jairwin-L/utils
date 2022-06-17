@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>Home - Utils Doc</title>
     
-    <meta name="description" content="常用工具函数库" />
+    <meta name="description" content="工具函数" />
     
         <meta name="keywords" content="js, JavaScript, lib, fed" />
         <meta name="keyword" content="js, JavaScript, lib, fed" />
@@ -35,7 +35,7 @@
     
     <input type="text" id="nav-search" placeholder="Search" />
     
-    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/Jairwin-L/utils" target="_blank" class="menu-item" id="forum_link" >Github</a></h2><h2><a href="https://www.npmjs.com/package/jairwin-utils" target="_blank" class="menu-item" id="forum_link" >NPM</a></h2><h3>Global</h3><ul><li><a href="global.html#box">box</a></li><li><a href="global.html#downloadFileUseJS">downloadFileUseJS</a></li><li><a href="global.html#easySessionStorage">easySessionStorage</a></li><li><a href="global.html#formatDate">formatDate</a></li><li><a href="global.html#isArray">isArray</a></li><li><a href="global.html#isString">isString</a></li><li><a href="global.html#jsonParseSafely">jsonParseSafely</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/Jairwin-L/utils" target="_blank" class="menu-item" id="forum_link" >Github</a></h2><h2><a href="https://www.npmjs.com/package/jairwin-utils" target="_blank" class="menu-item" id="forum_link" >NPM</a></h2><h3>Global</h3><ul><li><a href="global.html#appendQueriesToUrl">appendQueriesToUrl</a></li><li><a href="global.html#box">box</a></li><li><a href="global.html#downloadFileUseJS">downloadFileUseJS</a></li><li><a href="global.html#easySessionStorage">easySessionStorage</a></li><li><a href="global.html#formatDate">formatDate</a></li><li><a href="global.html#isArray">isArray</a></li><li><a href="global.html#jsonParseSafely">jsonParseSafely</a></li><li><a href="global.html#parse">parse</a></li><li><a href="global.html#stringify">stringify</a></li></ul>
 </nav>
 
 <div id="main">
@@ -118,7 +118,7 @@ index.d.ts</p>
 </code></pre>
 <ul>
 <li>pub:major：不兼容，或很大的变更</li>
-<li>pub:minor：现在特性，比如新增 utils，必须兼容</li>
+<li>pub:minor：小版本迭代，比如新增 utils，必须兼容</li>
 <li>pub:patch：bugfix、文档修改</li>
 </ul>
 <h3>单元测试</h3>
@@ -135,10 +135,10 @@ pnpm run test
 |____src                源码
 | |____index.ts         入口
 |____test/            	单元测试
-|____esm/             	[构建产物]es module产物，主要作用域浏览器以及小程序
+|____esm/             	[构建产物]es module产物，主要用作浏览器以及小程序
 |____umd/             	[构建产物]umd产物，主要用作amd, script tag等场景
-|____cjs/             	[构建产物]common js产物，主要用于node
-|____doc/             	[构建生成]jsdoc文档，主要作用于文档站点部署
+|____cjs/             	[构建产物]common js产物，主要作用node
+|____doc/             	[构建生成]jsdoc文档，主要作用文档站点部署
 |____jsdoc.json         jsdoc配置
 |____rollup.config.js   打包配置
 |___ __docdash          docdash相关文档配置文件

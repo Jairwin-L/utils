@@ -34,7 +34,7 @@
     "scripts": ["__docdash/global.css"],
     "meta": {
       "title": "Utils Doc",
-      "description": "常用工具函数库",
+      "description": "工具函数",
       "keyword": "js, JavaScript, lib, fed"
     },
     "menu": {

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "author": "jairwin@jairwin.cn",
   "packageManager": "pnpm@7.2.1",
-  "description": "常用工具函数",
+  "description": "工具函数",
   "keywords": [
     "JavaScript",
     "工具"
@@ -28,9 +28,9 @@
     "build:types": "tsc --declaration --outDir ./@types --emitDeclarationOnly --allowJs false",
     "build:doc": "rimraf _tmp doc && tsc -outDir _tmp && jsdoc -c ./jsdoc.json -d doc && rimraf _tmp && cp -r __docdash doc/ && cp -r doc",
     "watch:js": "NODE_ENV=development rollup -c -w",
-    "pub:patch": "npm version patch",
-    "pub:minor": "npm version minor",
-    "pub:major": "npm version major",
+    "pub:patch": "npm version patch && npm publish",
+    "pub:minor": "npm version minor && npm publish",
+    "pub:major": "npm version major && npm publish",
     "prepare:rollup": "rollup --config",
     "lint": "eslint ./src/ --ext ts",
     "lint:fix": "eslint --fix ./src/ --ext ts",
@@ -40,7 +40,7 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git@github.com:Jairwin-L/utils.git"
   },
   "license": "ISC",
   "devDependencies": {
@@ -90,7 +90,7 @@
     "tslib": "^2.4.0",
     "typescript": "^4.7.3",
     "unplugin-auto-import": "^0.8.7",
-    "vitest": "^0.14.2"
+    "vitest": "^0.15.1"
   },
   "publishConfig": {
     "registry": "https://registry.yarnpkg.com"
@@ -106,6 +106,14 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.8.4",
-    "dayjs": "^1.11.3"
+    "@types/lodash.isfunction": "^3.0.7",
+    "@types/lodash.isobjectlike": "^4.0.7",
+    "@types/lodash.isplainobject": "^4.0.7",
+    "@types/lodash.isstring": "^4.0.7",
+    "dayjs": "^1.11.3",
+    "lodash.isfunction": "^3.0.9",
+    "lodash.isobjectlike": "^4.0.0",
+    "lodash.isplainobject": "^4.0.6",
+    "lodash.isstring": "^4.0.1"
   }
 }

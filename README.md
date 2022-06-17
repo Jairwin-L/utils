@@ -67,7 +67,7 @@ npm run pub:major / pub:minor / pub:patch
 ```
 
 * pub:major：不兼容，或很大的变更
-* pub:minor：现在特性，比如新增 utils，必须兼容
+* pub:minor：小版本迭代，比如新增 utils，必须兼容
 * pub:patch：bugfix、文档修改
 
 ### 单元测试
@@ -92,10 +92,10 @@ pnpm run test
 |____src                源码
 | |____index.ts         入口
 |____test/            	单元测试
-|____esm/             	[构建产物]es module产物，主要作用域浏览器以及小程序
+|____esm/             	[构建产物]es module产物，主要用作浏览器以及小程序
 |____umd/             	[构建产物]umd产物，主要用作amd, script tag等场景
-|____cjs/             	[构建产物]common js产物，主要用于node
-|____doc/             	[构建生成]jsdoc文档，主要作用于文档站点部署
+|____cjs/             	[构建产物]common js产物，主要作用node
+|____doc/             	[构建生成]jsdoc文档，主要作用文档站点部署
 |____jsdoc.json         jsdoc配置
 |____rollup.config.js   打包配置
 |___ __docdash          docdash相关文档配置文件

@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>isArray.js - Utils Doc</title>
+    <title>parse.js - Utils Doc</title>
     
     <meta name="description" content="工具函数" />
     
@@ -40,7 +40,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">isArray.js</h1>
+    <h1 class="page-title">parse.js</h1>
     
 
     
@@ -50,32 +50,52 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>function isArrayPolyfill(v) {
-    return Object.prototype.toString.call(v) === '[object Array]';
-}
+            <pre class="prettyprint source linenums"><code>import isString from 'lodash.isstring';
+import isFunction from 'lodash.isfunction';
+import { isArray } from './isArray';
 /**
- * 判断一个给定的值是否是数组。在新的浏览器环境中使用 Array.isArray，否则使用 polyfill
- * @param {any} v 需要判断的值
- *
- * @example
- *
- * import { isArray } from 'jairwin-utils/esm/isArray';
- *
- * isArray([])
- * // => true
- *
- * isArray({})
- * // => false
- *
- * @returns {Boolean} 是数组则返回 true
- */
-export function isArray(v) {
-    if (typeof Array.isArray === 'function') {
-        return Array.isArray(v);
+  * 解析 URL query string
+  *
+  * @param {string} qs 需要解析的 URL query string
+  * @param {string} sep 用于界定键值对的子字符串。默认为 '&amp;'
+  * @param {string} eq 用于界定 key 和 value 的子字符串。默认为 '='
+  * @param {object} options 自定义解析行为
+  * @param {function} options.decodeURIComponent 自定义解码
+  */
+export function parse(qs, sep, eq, options) {
+    if (sep === void 0) { sep = '&amp;'; }
+    if (eq === void 0) { eq = '='; }
+    if (!isString(qs)) {
+        return {};
     }
-    return isArrayPolyfill(v);
+    // 对传入整个url的情况进行过滤，仅取参数部分
+    var keys = qs.replace(/^.*\?/, '').split(sep);
+    if (keys.length === 0) {
+        return {};
+    }
+    var decode = decodeURIComponent;
+    if (options &amp;&amp; isFunction(options.decodeURIComponent)) {
+        decode = options.decodeURIComponent;
+    }
+    var kv = {};
+    var klen = keys.length;
+    for (var i = 0; i &lt; klen; i++) {
+        var kvs = keys[i].split(eq);
+        var k = decode(kvs[0]);
+        var v = decode(kvs[1]);
+        if (kv[k] === undefined) {
+            kv[k] = v;
+        }
+        else if (isArray(kv[k])) {
+            kv[k].push(v);
+        }
+        else {
+            kv[k] = [kv[k], v];
+        }
+    }
+    return kv;
 }
-//# sourceMappingURL=isArray.js.map</code></pre>
+//# sourceMappingURL=parse.js.map</code></pre>
         </article>
     </section>
 

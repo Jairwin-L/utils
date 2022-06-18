@@ -53,10 +53,6 @@
             <pre class="prettyprint source linenums"><code>import dayjs from 'dayjs';
 // 获取当前系统时间戳
 var timestamp = new Date().valueOf();
-// 是否有效日期
-function isValidDate(date) {
-    return dayjs(date).isValid();
-}
 /**
  * 时间戳格式化输出
  * @param {string} timeStamp=timestamp 日期
@@ -67,15 +63,16 @@ function isValidDate(date) {
  *
  * import { formatDate } from 'jairwin-utils/esm/formatDate';
  *
- * formatDate(new Date().valueOf());
+ * formatDate();
  *
  */
 export function formatDate(timeStamp, format) {
     if (timeStamp === void 0) { timeStamp = timestamp; }
     if (format === void 0) { format = 'YYYY-MM-DD HH:mm:ss'; }
-    // 非时间戳格式，直接输出
-    if (!isValidDate(timeStamp)) {
-        console.log("\u975E\u65F6\u95F4\u6233\u683C\u5F0F\uFF0C\u76F4\u63A5\u8F93\u51FA----->\uFF1A", timeStamp);
+    // 非number类型时间戳格式，直接输出
+    if (typeof timeStamp !== 'number') {
+        // eg：node：1655-02-08 00:00:00；brower：1659-07-22 23:24:07
+        console.log('非number类型时间戳格式，直接输出----->：', timeStamp);
         return String(timeStamp);
     }
     return dayjs(timeStamp).format(format);

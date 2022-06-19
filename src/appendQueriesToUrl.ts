@@ -1,4 +1,4 @@
-import { stringify } from "./stringify";
+import { stringify } from './stringify';
 
 interface IData {
   [key: string]: any;

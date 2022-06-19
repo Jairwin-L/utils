@@ -50,7 +50,8 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import dayjs from 'dayjs';
+            <pre class="prettyprint source linenums"><code>import isNumber from 'lodash.isnumber';
+import dayjs from 'dayjs';
 // 获取当前系统时间戳
 var timestamp = new Date().valueOf();
 /**
@@ -70,7 +71,7 @@ export function formatDate(timeStamp, format) {
     if (timeStamp === void 0) { timeStamp = timestamp; }
     if (format === void 0) { format = 'YYYY-MM-DD HH:mm:ss'; }
     // 非number类型时间戳格式，直接输出
-    if (typeof timeStamp !== 'number') {
+    if (isNumber(timeStamp)) {
         // eg：node：1655-02-08 00:00:00；brower：1659-07-22 23:24:07
         console.log('非number类型时间戳格式，直接输出----->：', timeStamp);
         return String(timeStamp);

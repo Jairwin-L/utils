@@ -15,7 +15,7 @@ interface parseOptions {
   * @param {function} options.decodeURIComponent 自定义解码
   */
 
- export function parse(
+export function parse(
   qs: string,
   sep: string = '&',
   eq: string = '=',

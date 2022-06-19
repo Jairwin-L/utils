@@ -3,20 +3,11 @@ module.exports = {
   extends: [
     'standard',
     // 'plugin:prettier/recommended',
-    // , 'airbnb'
+    // 'airbnb'
   ],
   plugins: ['@typescript-eslint'], //定义了该eslint文件所依赖的插件
   parserOptions: {
     ecmaVersion: 2017,
-  },
-  globals: {
-    // navigator: true,
-    my: true,
-    App: true,
-    getApp: true,
-    Page: true,
-    Component: true,
-    getCurrentPages: true,
   },
   overrides: [
     // [no-dupe-class-members] false negative for method overload

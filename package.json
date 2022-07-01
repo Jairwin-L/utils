@@ -1,6 +1,6 @@
 {
   "name": "jairwin-utils",
-  "version": "0.2.5",
+  "version": "0.2.4",
   "author": "jairwin@jairwin.cn",
   "packageManager": "yarn@1.22.19",
   "description": "工具函数",

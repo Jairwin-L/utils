@@ -43,7 +43,7 @@ function stringifyPrimitive(v: string | number | boolean | object): string {
   * stringify({key: 'value', undef: undefined })
   * // => 'key=value&undef='
   */
- export function stringify(
+export function stringify(
   obj: object,
   options: IStringifyOptions = {},
 ): string {

@@ -2,7 +2,7 @@
   "name": "jairwin-utils",
   "version": "0.2.1",
   "author": "jairwin@jairwin.cn",
-  "packageManager": "pnpm@7.2.1",
+  "packageManager": "yarn@1.22.19",
   "description": "工具函数",
   "keywords": [
     "JavaScript",
@@ -22,9 +22,9 @@
   ],
   "scripts": {
     "clean": "rimraf umd cjs esm @types doc coverage",
-    "build": "NODE_ENV=production pnpm run build:js && pnpm run build:doc",
-    "build:dev": "NODE_ENV=development pnpm run build:js && pnpm run build:doc",
-    "build:js": "pnpm run clean && rollup -c",
+    "build": "NODE_ENV=production yarn build:js && yarn build:doc",
+    "build:dev": "NODE_ENV=development yarn build:js && yarn build:doc",
+    "build:js": "yarn clean && rollup -c",
     "build:types": "tsc --declaration --outDir ./@types --emitDeclarationOnly --allowJs false",
     "build:doc": "rimraf _tmp doc && tsc -outDir _tmp && jsdoc -c ./jsdoc.json -d doc && rimraf _tmp && cp -r __docdash doc/ && cp -r doc",
     "watch:js": "NODE_ENV=development rollup -c -w",
@@ -43,6 +43,18 @@
     "url": "git@github.com:Jairwin-L/utils.git"
   },
   "license": "ISC",
+  "dependencies": {
+    "@babel/runtime": "^7.8.4",
+    "@types/lodash.isfunction": "^3.0.7",
+    "@types/lodash.isobjectlike": "^4.0.7",
+    "@types/lodash.isplainobject": "^4.0.7",
+    "@types/lodash.isstring": "^4.0.7",
+    "dayjs": "^1.11.3",
+    "lodash.isfunction": "^3.0.9",
+    "lodash.isobjectlike": "^4.0.0",
+    "lodash.isplainobject": "^4.0.6",
+    "lodash.isstring": "^4.0.1"
+  },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.8.4",
@@ -92,6 +104,19 @@
     "unplugin-auto-import": "^0.8.7",
     "vitest": "^0.15.1"
   },
+  "npm": {
+    "mode": "yarn",
+    "lockfile": "enable"
+  },
+  "cnpm": {
+    "mode": "yarn",
+    "lockfile": "enable"
+  },
+  "engines": {
+    "node": ">=12.0.0",
+    "install-node": "14",
+    "yarn": "^1.22.19"
+  },
   "publishConfig": {
     "registry": "https://registry.yarnpkg.com"
   },
@@ -101,19 +126,13 @@
       "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS"
     }
   },
-  "cnpm": {
-    "mode": "pnpm"
-  },
-  "dependencies": {
-    "@babel/runtime": "^7.8.4",
-    "@types/lodash.isfunction": "^3.0.7",
-    "@types/lodash.isobjectlike": "^4.0.7",
-    "@types/lodash.isplainobject": "^4.0.7",
-    "@types/lodash.isstring": "^4.0.7",
-    "dayjs": "^1.11.3",
-    "lodash.isfunction": "^3.0.9",
-    "lodash.isobjectlike": "^4.0.0",
-    "lodash.isplainobject": "^4.0.6",
-    "lodash.isstring": "^4.0.1"
+  "lint-staged": {
+    "{src,test}/**/*.{js,ts}": [
+      "yarn lint",
+      "git add"
+    ],
+    "src/**/*.{js,js,ts,ts}": [
+      "yarn lint -s --"
+    ]
   }
 }

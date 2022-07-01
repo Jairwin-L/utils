@@ -18,7 +18,7 @@ export function jsonParseSafely<T>(
   try {
     return JSON.parse(value);
   } catch (error) {
-    console.log('jsonParseSafely----->：', error);
+    console.log('[jairwin-utils]jsonParseSafely----->：', error);
     return parseFailedDefaultValue;
   }
 }

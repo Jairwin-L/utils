@@ -12,7 +12,7 @@
 
 ```
 // 安装
-pnpm i jairwin-utils
+yarn add jairwin-utils
 ```
 
 ### 引入
@@ -52,7 +52,7 @@ index.d.ts
 ### build
 
 ```
-pnpm run build
+yarn build
 ```
 
 >构建js库，构建成功后将根据不同的模块化方式分别输出到esm/umd/cjs目录，并将JSDOC文档输出到doc/(doc/用于部署为在线文档)
@@ -75,10 +75,10 @@ npm run pub:major / pub:minor / pub:patch
 命令：
 
 ```sh
-pnpm run build && pnpm run test
+yarn build && yarn test
 
 # 如果只是修改单测，只需
-pnpm run test
+yarn test
 ```
 
 
@@ -92,9 +92,9 @@ pnpm run test
 |____src                源码
 | |____index.ts         入口
 |____test/            	单元测试
-|____esm/             	[构建产物]es module产物，主要用作浏览器以及小程序
-|____umd/             	[构建产物]umd产物，主要用作amd, script tag等场景
-|____cjs/             	[构建产物]common js产物，主要作用node
+|____esm/             	[构建产物]es module产物，适用于浏览器以及小程序
+|____umd/             	[构建产物]umd产物，通用模块定义，适用于amd, script tag等场景
+|____cjs/             	[构建产物]common js产物，适用于 Node 或 Browserify/webpack
 |____doc/             	[构建生成]jsdoc文档，主要作用文档站点部署
 |____jsdoc.json         jsdoc配置
 |____rollup.config.js   打包配置

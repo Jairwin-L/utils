@@ -69,7 +69,7 @@ export function jsonParseSafely(value, parseFailedDefaultValue) {
         return JSON.parse(value);
     }
     catch (error) {
-        console.log('jsonParseSafely----->：', error);
+        console.log('[jairwin-utils]jsonParseSafely----->：', error);
         return parseFailedDefaultValue;
     }
 }

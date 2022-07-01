@@ -74,7 +74,7 @@
 </blockquote>
 <h3>安装和使用</h3>
 <pre class="prettyprint source"><code>// 安装
-pnpm i jairwin-utils
+yarn add jairwin-utils
 </code></pre>
 <h3>引入</h3>
 <pre class="prettyprint source lang-ts"><code>// 1. 单个方法引入方式(✅ 推荐)
@@ -104,7 +104,7 @@ index.d.ts</p>
 <p>阅读对象：库函维护者</p>
 </blockquote>
 <h3>build</h3>
-<pre class="prettyprint source"><code>pnpm run build
+<pre class="prettyprint source"><code>yarn build
 </code></pre>
 <blockquote>
 <p>构建js库，构建成功后将根据不同的模块化方式分别输出到esm/umd/cjs目录，并将JSDOC文档输出到doc/(doc/用于部署为在线文档)</p>
@@ -123,10 +123,10 @@ index.d.ts</p>
 </ul>
 <h3>单元测试</h3>
 <p>命令：</p>
-<pre class="prettyprint source lang-sh"><code>pnpm run build && pnpm run test
+<pre class="prettyprint source lang-sh"><code>yarn build && yarn test
 
 # 如果只是修改单测，只需
-pnpm run test
+yarn test
 </code></pre>
 <h2>开发规范</h2>
 <h3>目录结构</h3>
@@ -135,9 +135,9 @@ pnpm run test
 |____src                源码
 | |____index.ts         入口
 |____test/            	单元测试
-|____esm/             	[构建产物]es module产物，主要用作浏览器以及小程序
-|____umd/             	[构建产物]umd产物，主要用作amd, script tag等场景
-|____cjs/             	[构建产物]common js产物，主要作用node
+|____esm/             	[构建产物]es module产物，适用于浏览器以及小程序
+|____umd/             	[构建产物]umd产物，通用模块定义，适用于amd, script tag等场景
+|____cjs/             	[构建产物]common js产物，适用于 Node 或 Browserify/webpack
 |____doc/             	[构建生成]jsdoc文档，主要作用文档站点部署
 |____jsdoc.json         jsdoc配置
 |____rollup.config.js   打包配置

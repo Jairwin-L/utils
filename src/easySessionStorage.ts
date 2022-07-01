@@ -52,5 +52,5 @@ export const easySessionStorage = {
    */
   clear(): void {
     window.sessionStorage.clear();
-  }
-}
+  },
+};

@@ -1,0 +1,16 @@
+/* docdash 样式覆盖 */
+a {
+  color: #ddaeb6;
+}
+nav > ul > li > a {
+  color: #ffc0cb;
+}
+nav ul a:active {
+  color: #fa88fd;
+}
+nav > h2 > a {
+  color: #ffc0cb !important;
+}
+nav h3 {
+  color: #f48c8c;
+}

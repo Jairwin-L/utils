@@ -1,0 +1,55 @@
+{
+  "tags": {
+    "allowUnknownTags": true
+  },
+  "source": {
+    "include": ["_tmp/", "./README.md"],
+    "excludePattern": "(node_modules/|docs)"
+  },
+  "plugins": ["plugins/markdown"],
+  "opts": {
+    "encoding": "utf8",
+    "template": "node_modules/docdash",
+    "recurse": true,
+    "verbose": true
+  },
+  "markdown": {
+    "parser": "gfm",
+    "hardwrap": true
+  },
+  "templates": {
+    "cleverLinks": false,
+    "monospaceLinks": false,
+    "default": {
+      "outputSourceFiles": true,
+      "includeDate": false,
+      "useLongnameInNav": true
+    }
+  },
+  "docdash": {
+    "static": true,
+    "sort": true,
+    "search": true,
+    "navLevel": 2,
+    "scripts": ["__docdash/global.css"],
+    "meta": {
+      "title": "Utils Doc",
+      "description": "工具函数",
+      "keyword": "js, JavaScript, lib, fed"
+    },
+    "menu": {
+      "Github": {
+        "href": "https://github.com/Jairwin-L/utils",
+        "target": "_blank",
+        "class": "menu-item",
+        "id": "forum_link"
+      },
+      "NPM": {
+        "href": "https://www.npmjs.com/package/@jairwinl/utils",
+        "target": "_blank",
+        "class": "menu-item",
+        "id": "forum_link"
+      }
+    }
+  }
+}

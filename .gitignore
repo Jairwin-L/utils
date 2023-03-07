@@ -1,0 +1,15 @@
+node_modules
+npm-debug.log
+coverage/
+run/
+.DS_Store
+config.local.js
+# 构建产物
+cjs
+umd
+esm
+@types
+_tmp
+.entry
+.node
+IGNORE.md

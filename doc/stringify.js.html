@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>stringify.js - Utils Doc</title>
+    
+    <meta name="description" content="工具函数" />
+    
+        <meta name="keywords" content="js, JavaScript, lib, fed" />
+        <meta name="keyword" content="js, JavaScript, lib, fed" />
+    
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/Jairwin-L/utils" target="_blank" class="menu-item" id="forum_link" >Github</a></h2><h2><a href="https://www.npmjs.com/package/@jairwinl/utils" target="_blank" class="menu-item" id="forum_link" >NPM</a></h2><h3>Global</h3><ul><li><a href="global.html#appendQueriesToUrl">appendQueriesToUrl</a></li><li><a href="global.html#arrayToObject">arrayToObject</a></li><li><a href="global.html#box">box</a></li><li><a href="global.html#downloadFileUseJS">downloadFileUseJS</a></li><li><a href="global.html#easySessionStorage">easySessionStorage</a></li><li><a href="global.html#formatDate">formatDate</a></li><li><a href="global.html#isArray">isArray</a></li><li><a href="global.html#jsonParseSafely">jsonParseSafely</a></li><li><a href="global.html#msg">msg</a></li><li><a href="global.html#parse">parse</a></li><li><a href="global.html#stringify">stringify</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">stringify.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import isPlainObject from 'lodash.isplainobject';
+import isFunction from 'lodash.isfunction';
+import { isArray } from './isArray';
+function safe(fn) {
+    return function () {
+        var args = [];
+        for (var _i = 0; _i &lt; arguments.length; _i++) {
+            args[_i] = arguments[_i];
+        }
+        try {
+            // tslib 不支持
+            // eslint-disable-next-line prefer-spread
+            return fn.apply(null, args);
+        }
+        catch (error) {
+            return args[0];
+        }
+    };
+}
+function stringifyPrimitive(v) {
+    if (typeof v === 'string')
+        return v;
+    if (typeof v === 'number' &amp;&amp; isFinite(v))
+        return v;
+    if (typeof v === 'boolean')
+        return v ? 'true' : 'false';
+    if (typeof v === 'object')
+        return JSON.stringify(v);
+    return '';
+}
+/**
+ * 将对象转换成 query string
+ *
+ * @param {object} obj 需要序列化成 URL query string 的对象。属性值支持数组。
+ * @param {string} sep 用于界定键值对的子字符串。默认为 '&amp;'
+ * @param {string} eq 用于界定 key 和 value 的子字符串。默认为 '='
+ * @param {object} options 自定义编码行为
+ * @param {function} options.encodeURIComponent 用于自定义的 encodeURIComponent
+ * @returns {string}
+ *
+ * @example
+ *
+ * stringify({})
+ * // => ''
+ *
+ * stringify({key: 'value', undef: undefined })
+ * // => 'key=value&amp;undef='
+ */
+export function stringify(obj, options) {
+    if (options === void 0) { options = {}; }
+    if (!isPlainObject(obj)) {
+        return '';
+    }
+    var _a = options || {}, _b = _a.sep, sep = _b === void 0 ? '&amp;' : _b, _c = _a.eq, eq = _c === void 0 ? '=' : _c;
+    var encode = safe(encodeURIComponent);
+    if (options &amp;&amp; isFunction(options.encodeURIComponent)) {
+        // @ts-ignore TODO:
+        encode = safe(options.encodeURIComponent);
+    }
+    var keys = Object.keys(obj);
+    var len = keys.length;
+    var fields = '';
+    for (var i = 0; i &lt; len; i++) {
+        var k = keys[i];
+        var v = obj[k];
+        var ks = encode(stringifyPrimitive(k));
+        ks += eq;
+        if (isArray(v)) {
+            var vlen = v.length;
+            if (vlen === 0)
+                continue;
+            for (var j = 0; j &lt; vlen; j++) {
+                fields += ks;
+                fields += encode(stringifyPrimitive(v[j]));
+                if (j &lt; vlen - 1) {
+                    fields += sep;
+                }
+            }
+        }
+        else {
+            fields += ks;
+            fields += encode(stringifyPrimitive(v));
+        }
+        if (i &lt; len - 1) {
+            fields += sep;
+        }
+    }
+    return fields;
+}
+//# sourceMappingURL=stringify.js.map</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.11</a> using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
+
+
+
+    <link type="text/css" rel="stylesheet" href="__docdash/global.css">
+    
+</body>
+</html>

@@ -3,7 +3,8 @@
 ## 在线文档
 
 - [@jairwinl/utils 文档](https://utils-doc.vercel.app)
-- 备用地址：[查看](http://util-doc.jairwin.cn)
+- [备用地址](http://util-doc.jairwin.cn)
+- [npm](https://www.npmjs.com/package/@jairwinl/utils)
 
 ## 说明
 

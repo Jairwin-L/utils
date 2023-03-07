@@ -27,9 +27,9 @@
     "build:types": "tsc --declaration --outDir ./@types --emitDeclarationOnly --allowJs false",
     "build:doc": "rimraf _tmp doc && tsc -outDir _tmp && jsdoc -c ./jsdoc.json -d doc && rimraf _tmp && cp -r __docdash doc/ && cp -r doc",
     "watch:js": "NODE_ENV=development rollup -c -w",
-    "pub:patch": "npm version patch && npm publish",
-    "pub:minor": "npm version minor && npm publish",
-    "pub:major": "npm version major && npm publish",
+    "pub:patch": "npm version patch && npm publish --access public",
+    "pub:minor": "npm version minor && npm publish --access public",
+    "pub:major": "npm version major && npm publish --access public",
     "prepare:rollup": "rollup --config",
     "test": "vitest",
     "test:c": "vitest run --coverage",
@@ -121,6 +121,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:Jairwin-L/utils.git"
+    "url": "git+ssh://git@github.com/Jairwin-L/utils.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Jairwin-L/utils/issues"
+  },
+  "homepage": "https://github.com/Jairwin-L/utils#readme",
+  "directories": {
+    "doc": "doc",
+    "test": "test"
   }
 }

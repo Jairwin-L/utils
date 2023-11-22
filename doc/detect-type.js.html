@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>detectType.js - Utils Doc</title>
+    <title>detect-type.js - Utils Doc</title>
     
     <meta name="description" content="工具函数" />
     
@@ -35,12 +35,12 @@
     
     <input type="text" id="nav-search" placeholder="Search" />
     
-    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/Jairwin-L/utils" target="_blank" class="menu-item" id="forum_link" >Github</a></h2><h2><a href="https://www.npmjs.com/package/@jairwinl/utils" target="_blank" class="menu-item" id="forum_link" >NPM</a></h2><h3>Global</h3><ul><li><a href="global.html#appendQueriesToUrl">appendQueriesToUrl</a></li><li><a href="global.html#arrayToObject">arrayToObject</a></li><li><a href="global.html#box">box</a></li><li><a href="global.html#downloadFileUseJS">downloadFileUseJS</a></li><li><a href="global.html#easySessionStorage">easySessionStorage</a></li><li><a href="global.html#formatDate">formatDate</a></li><li><a href="global.html#isArray">isArray</a></li><li><a href="global.html#jsonParseSafely">jsonParseSafely</a></li><li><a href="global.html#msg">msg</a></li><li><a href="global.html#parse">parse</a></li><li><a href="global.html#stringify">stringify</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/Jairwin-L/utils" target="_blank" class="menu-item" id="forum_link" >Github</a></h2><h2><a href="https://www.npmjs.com/package/@jairwinl/utils" target="_blank" class="menu-item" id="forum_link" >NPM</a></h2><h3>Global</h3><ul><li><a href="global.html#appendQueriesToUrl">appendQueriesToUrl</a></li><li><a href="global.html#arrayToObject">arrayToObject</a></li><li><a href="global.html#box">box</a></li><li><a href="global.html#downloadFileUseJS">downloadFileUseJS</a></li><li><a href="global.html#easySessionStorage">easySessionStorage</a></li><li><a href="global.html#formatDate">formatDate</a></li><li><a href="global.html#getQueryString">getQueryString</a></li><li><a href="global.html#isArray">isArray</a></li><li><a href="global.html#jsonParseSafely">jsonParseSafely</a></li><li><a href="global.html#msg">msg</a></li><li><a href="global.html#parse">parse</a></li><li><a href="global.html#stringify">stringify</a></li></ul>
 </nav>
 
 <div id="main">
     
-    <h1 class="page-title">detectType.js</h1>
+    <h1 class="page-title">detect-type.js</h1>
     
 
     
@@ -57,13 +57,14 @@
  * @return { Boolean } 校验结果
  */
 var msg = '缺少必要参数：expectType';
-export function detectType(arg, expectType) {
+function detectType(arg, expectType) {
     if (!expectType) {
         throw new Error(msg);
     }
     return (Object.prototype.toString.call(arg).toLowerCase() === "[object ".concat(expectType.toLowerCase(), "]"));
 }
-//# sourceMappingURL=detectType.js.map</code></pre>
+export default detectType;
+//# sourceMappingURL=detect-type.js.map</code></pre>
         </article>
     </section>
 

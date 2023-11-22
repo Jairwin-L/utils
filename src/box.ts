@@ -18,12 +18,12 @@
  * }
  * return resp;
  */
-export async function box<T>(
-  promise: Promise<T>,
-): Promise<[(Error & T) | undefined, T | undefined]> {
+async function box<T>(promise: Promise<T>): Promise<[(Error & T) | undefined, T | undefined]> {
   try {
     return [undefined, await promise];
   } catch (error) {
     return [error as any, undefined];
   }
 }
+
+export default box;

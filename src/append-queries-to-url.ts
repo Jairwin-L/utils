@@ -1,4 +1,4 @@
-import { stringify } from './stringify';
+import { default as stringify } from './stringify';
 
 interface IData {
   [key: string]: any;
@@ -40,9 +40,11 @@ function appendQueryToUrl(url: string, query: string) {
  *
  * // => 'https://example.com?a=b&c=d'
  */
-export function appendQueriesToUrl(url: string, params: IData = {}) {
+function appendQueriesToUrl(url: string, params: IData = {}) {
   if (!url || !params) {
     return url;
   }
   return appendQueryToUrl(url, stringify(params));
 }
+
+export default appendQueriesToUrl;

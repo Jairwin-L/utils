@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>parse.js - Utils Doc</title>
+    <title>get-query-string.js - Utils Doc</title>
     
     <meta name="description" content="工具函数" />
     
@@ -40,7 +40,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">parse.js</h1>
+    <h1 class="page-title">get-query-string.js</h1>
     
 
     
@@ -50,53 +50,28 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import isString from 'lodash.isstring';
-import isFunction from 'lodash.isfunction';
-import { default as isArray } from './is-array';
+            <pre class="prettyprint source linenums"><code>import qs from 'query-string';
 /**
- * 解析 URL query string
+ * 获取url链接参数
+ * @param {string} key 链接参数
+ * @return {string} 链接参数
  *
- * @param {string} qs 需要解析的 URL query string
- * @param {string} sep 用于界定键值对的子字符串。默认为 '&amp;'
- * @param {string} eq 用于界定 key 和 value 的子字符串。默认为 '='
- * @param {object} options 自定义解析行为
- * @param {function} options.decodeURIComponent 自定义解码
+ * @example
+ *
+ * import { getQueryString } from '@jairwinl/utils/esm/getQueryString';
+ *
+ * export type IQueryStringKey = 'id'
+ *
+ * getQueryString&lt;IQueryStringKey>('id') as string; // 详情ID
+ *
  */
-function parse(qs, sep, eq, options) {
-    if (sep === void 0) { sep = '&amp;'; }
-    if (eq === void 0) { eq = '='; }
-    if (!isString(qs)) {
-        return {};
-    }
-    // 对传入整个url的情况进行过滤，仅取参数部分
-    var keys = qs.replace(/^.*\?/, '').split(sep);
-    if (keys.length === 0) {
-        return {};
-    }
-    var decode = decodeURIComponent;
-    if (options &amp;&amp; isFunction(options.decodeURIComponent)) {
-        decode = options.decodeURIComponent;
-    }
-    var kv = {};
-    var klen = keys.length;
-    for (var i = 0; i &lt; klen; i++) {
-        var kvs = keys[i].split(eq);
-        var k = decode(kvs[0]);
-        var v = decode(kvs[1]);
-        if (kv[k] === undefined) {
-            kv[k] = v;
-        }
-        else if (isArray(kv[k])) {
-            kv[k].push(v);
-        }
-        else {
-            kv[k] = [kv[k], v];
-        }
-    }
-    return kv;
+function getQueryString(key) {
+    var _a;
+    var query = qs.parse((_a = location === null || location === void 0 ? void 0 : location.search) === null || _a === void 0 ? void 0 : _a.replace('?', ''));
+    return query[key];
 }
-export default parse;
-//# sourceMappingURL=parse.js.map</code></pre>
+export default getQueryString;
+//# sourceMappingURL=get-query-string.js.map</code></pre>
         </article>
     </section>
 

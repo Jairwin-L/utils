@@ -1,4 +1,4 @@
-import { detectType } from './detectType';
+import { default as detectType } from './detect-type';
 
 /**
  * 数组转换为对象
@@ -7,7 +7,7 @@ import { detectType } from './detectType';
  * @return {object} res 转换后的对象
  * @description 数组元素均为对象，转换后对象的key值为数组对象元素的某key对应value
  */
-export function arrayToObject(array: any, key: any) {
+function arrayToObject(array: any, key: any) {
   if (!array || !key) {
     throw Error('缺失必要参数');
   }
@@ -31,3 +31,5 @@ export function arrayToObject(array: any, key: any) {
   });
   return res;
 }
+
+export default arrayToObject;

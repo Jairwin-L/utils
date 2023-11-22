@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>isArray.js - Utils Doc</title>
+    <title>is-array.js - Utils Doc</title>
     
     <meta name="description" content="工具函数" />
     
@@ -35,12 +35,12 @@
     
     <input type="text" id="nav-search" placeholder="Search" />
     
-    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/Jairwin-L/utils" target="_blank" class="menu-item" id="forum_link" >Github</a></h2><h2><a href="https://www.npmjs.com/package/@jairwinl/utils" target="_blank" class="menu-item" id="forum_link" >NPM</a></h2><h3>Global</h3><ul><li><a href="global.html#appendQueriesToUrl">appendQueriesToUrl</a></li><li><a href="global.html#arrayToObject">arrayToObject</a></li><li><a href="global.html#box">box</a></li><li><a href="global.html#downloadFileUseJS">downloadFileUseJS</a></li><li><a href="global.html#easySessionStorage">easySessionStorage</a></li><li><a href="global.html#formatDate">formatDate</a></li><li><a href="global.html#isArray">isArray</a></li><li><a href="global.html#jsonParseSafely">jsonParseSafely</a></li><li><a href="global.html#msg">msg</a></li><li><a href="global.html#parse">parse</a></li><li><a href="global.html#stringify">stringify</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/Jairwin-L/utils" target="_blank" class="menu-item" id="forum_link" >Github</a></h2><h2><a href="https://www.npmjs.com/package/@jairwinl/utils" target="_blank" class="menu-item" id="forum_link" >NPM</a></h2><h3>Global</h3><ul><li><a href="global.html#appendQueriesToUrl">appendQueriesToUrl</a></li><li><a href="global.html#arrayToObject">arrayToObject</a></li><li><a href="global.html#box">box</a></li><li><a href="global.html#downloadFileUseJS">downloadFileUseJS</a></li><li><a href="global.html#easySessionStorage">easySessionStorage</a></li><li><a href="global.html#formatDate">formatDate</a></li><li><a href="global.html#getQueryString">getQueryString</a></li><li><a href="global.html#isArray">isArray</a></li><li><a href="global.html#jsonParseSafely">jsonParseSafely</a></li><li><a href="global.html#msg">msg</a></li><li><a href="global.html#parse">parse</a></li><li><a href="global.html#stringify">stringify</a></li></ul>
 </nav>
 
 <div id="main">
     
-    <h1 class="page-title">isArray.js</h1>
+    <h1 class="page-title">is-array.js</h1>
     
 
     
@@ -69,13 +69,14 @@
  *
  * @returns {Boolean} 是数组则返回 true
  */
-export function isArray(v) {
+function isArray(v) {
     if (typeof Array.isArray === 'function') {
         return Array.isArray(v);
     }
     return isArrayPolyfill(v);
 }
-//# sourceMappingURL=isArray.js.map</code></pre>
+export default isArray;
+//# sourceMappingURL=is-array.js.map</code></pre>
         </article>
     </section>
 

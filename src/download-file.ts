@@ -12,7 +12,7 @@
  * downloadFileUseJS(data, '测试文件', 'xls')
  *
  */
-export function downloadFileUseJS(data: Blob, name = '文件', prefix = 'xls'): void {
+function downloadFileUseJS(data: Blob, name = '文件', prefix = 'xls'): void {
   const urlObject = window.URL || window.webkitURL || window;
   const blob = new Blob([data]);
   const a = document.createElement('a');
@@ -22,3 +22,5 @@ export function downloadFileUseJS(data: Blob, name = '文件', prefix = 'xls'): 
   a.click();
   window.URL.revokeObjectURL(url);
 }
+
+export default downloadFileUseJS;

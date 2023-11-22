@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>easySessionStorage.js - Utils Doc</title>
+    <title>easy-session-storage.js - Utils Doc</title>
     
     <meta name="description" content="工具函数" />
     
@@ -35,12 +35,12 @@
     
     <input type="text" id="nav-search" placeholder="Search" />
     
-    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/Jairwin-L/utils" target="_blank" class="menu-item" id="forum_link" >Github</a></h2><h2><a href="https://www.npmjs.com/package/@jairwinl/utils" target="_blank" class="menu-item" id="forum_link" >NPM</a></h2><h3>Global</h3><ul><li><a href="global.html#appendQueriesToUrl">appendQueriesToUrl</a></li><li><a href="global.html#arrayToObject">arrayToObject</a></li><li><a href="global.html#box">box</a></li><li><a href="global.html#downloadFileUseJS">downloadFileUseJS</a></li><li><a href="global.html#easySessionStorage">easySessionStorage</a></li><li><a href="global.html#formatDate">formatDate</a></li><li><a href="global.html#isArray">isArray</a></li><li><a href="global.html#jsonParseSafely">jsonParseSafely</a></li><li><a href="global.html#msg">msg</a></li><li><a href="global.html#parse">parse</a></li><li><a href="global.html#stringify">stringify</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/Jairwin-L/utils" target="_blank" class="menu-item" id="forum_link" >Github</a></h2><h2><a href="https://www.npmjs.com/package/@jairwinl/utils" target="_blank" class="menu-item" id="forum_link" >NPM</a></h2><h3>Global</h3><ul><li><a href="global.html#appendQueriesToUrl">appendQueriesToUrl</a></li><li><a href="global.html#arrayToObject">arrayToObject</a></li><li><a href="global.html#box">box</a></li><li><a href="global.html#downloadFileUseJS">downloadFileUseJS</a></li><li><a href="global.html#easySessionStorage">easySessionStorage</a></li><li><a href="global.html#formatDate">formatDate</a></li><li><a href="global.html#getQueryString">getQueryString</a></li><li><a href="global.html#isArray">isArray</a></li><li><a href="global.html#jsonParseSafely">jsonParseSafely</a></li><li><a href="global.html#msg">msg</a></li><li><a href="global.html#parse">parse</a></li><li><a href="global.html#stringify">stringify</a></li></ul>
 </nav>
 
 <div id="main">
     
-    <h1 class="page-title">easySessionStorage.js</h1>
+    <h1 class="page-title">easy-session-storage.js</h1>
     
 
     
@@ -50,7 +50,7 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import { jsonParseSafely } from './jsonParseSafely';
+            <pre class="prettyprint source linenums"><code>import { default as jsonParseSafely } from './json-parse-safely';
 /**
  * 通用 easySessionStorage
  *
@@ -70,7 +70,7 @@
  * // 全部清除
  * easySessionStorage.clear();
  */
-export var easySessionStorage = {
+var easySessionStorage = {
     /**
      * setItem
      *
@@ -104,7 +104,8 @@ export var easySessionStorage = {
         window.sessionStorage.clear();
     },
 };
-//# sourceMappingURL=easySessionStorage.js.map</code></pre>
+export default easySessionStorage;
+//# sourceMappingURL=easy-session-storage.js.map</code></pre>
         </article>
     </section>
 

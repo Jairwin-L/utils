@@ -1,4 +1,4 @@
-import { jsonParseSafely } from './jsonParseSafely';
+import { default as jsonParseSafely } from './json-parse-safely';
 
 /**
  * 通用 easySessionStorage
@@ -20,7 +20,7 @@ import { jsonParseSafely } from './jsonParseSafely';
  * easySessionStorage.clear();
  */
 
-export const easySessionStorage = {
+const easySessionStorage = {
   /**
    * setItem
    *
@@ -54,3 +54,5 @@ export const easySessionStorage = {
     window.sessionStorage.clear();
   },
 };
+
+export default easySessionStorage;

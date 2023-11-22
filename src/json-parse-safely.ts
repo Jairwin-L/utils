@@ -11,7 +11,7 @@
  * jsonParseSafely(window.sessionStorage.getItem(key))
  *
  */
-export function jsonParseSafely<T>(value: string, parseFailedDefaultValue: any = {}): T {
+function jsonParseSafely<T>(value: string, parseFailedDefaultValue: any = {}): T {
   try {
     return JSON.parse(value);
   } catch (error) {
@@ -19,3 +19,5 @@ export function jsonParseSafely<T>(value: string, parseFailedDefaultValue: any =
     return parseFailedDefaultValue;
   }
 }
+
+export default jsonParseSafely;

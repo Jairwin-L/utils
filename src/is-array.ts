@@ -18,9 +18,11 @@ function isArrayPolyfill(v: any): Boolean {
  *
  * @returns {Boolean} 是数组则返回 true
  */
-export function isArray(v: any): Boolean {
+function isArray(v: any): Boolean {
   if (typeof Array.isArray === 'function') {
     return Array.isArray(v);
   }
   return isArrayPolyfill(v);
 }
+
+export default isArray;

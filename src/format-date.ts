@@ -16,12 +16,14 @@ const timestamp = new Date().valueOf();
  *
  */
 
-export function formatDate(timeStamp: number = timestamp, format = 'YYYY-MM-DD HH:mm:ss'): string {
+function formatDate(timeStamp: number = timestamp, format = 'YYYY-MM-DD HH:mm:ss'): string {
   // 非number类型时间戳格式，直接输出
   if (typeof timeStamp !== 'number') {
     // eg：node：1655-02-08 00:00:00；Browserify：1659-07-22 23:24:07
-    console.log('[@jairwinl/utils]非number类型时间戳格式，直接输出----->：', timeStamp);
+    console.warn('[@jairwinl/utils]非number类型时间戳格式，直接输出----->：', timeStamp);
     return String(timeStamp);
   }
   return dayjs(timeStamp).format(format);
 }
+
+export default formatDate;

@@ -5,7 +5,7 @@
  * @return { Boolean } 校验结果
  */
 const msg = '缺少必要参数：expectType';
-export function detectType(arg: any, expectType: string): boolean {
+function detectType(arg: any, expectType: string): boolean {
   if (!expectType) {
     throw new Error(msg);
   }
@@ -13,3 +13,5 @@ export function detectType(arg: any, expectType: string): boolean {
     Object.prototype.toString.call(arg).toLowerCase() === `[object ${expectType.toLowerCase()}]`
   );
 }
+
+export default detectType;

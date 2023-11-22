@@ -1,6 +1,6 @@
 import isString from 'lodash.isstring';
 import isFunction from 'lodash.isfunction';
-import { isArray } from './isArray';
+import { default as isArray } from './is-array';
 
 interface parseOptions {
   decodeURIComponent: Function;
@@ -15,7 +15,7 @@ interface parseOptions {
  * @param {function} options.decodeURIComponent 自定义解码
  */
 
-export function parse(qs: string, sep = '&', eq = '=', options?: parseOptions): object {
+function parse(qs: string, sep = '&', eq = '=', options?: parseOptions): object {
   if (!isString(qs)) {
     return {};
   }
@@ -46,3 +46,5 @@ export function parse(qs: string, sep = '&', eq = '=', options?: parseOptions): 
   }
   return kv;
 }
+
+export default parse;

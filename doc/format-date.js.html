@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>formatDate.js - Utils Doc</title>
+    <title>format-date.js - Utils Doc</title>
     
     <meta name="description" content="工具函数" />
     
@@ -35,12 +35,12 @@
     
     <input type="text" id="nav-search" placeholder="Search" />
     
-    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/Jairwin-L/utils" target="_blank" class="menu-item" id="forum_link" >Github</a></h2><h2><a href="https://www.npmjs.com/package/@jairwinl/utils" target="_blank" class="menu-item" id="forum_link" >NPM</a></h2><h3>Global</h3><ul><li><a href="global.html#appendQueriesToUrl">appendQueriesToUrl</a></li><li><a href="global.html#arrayToObject">arrayToObject</a></li><li><a href="global.html#box">box</a></li><li><a href="global.html#downloadFileUseJS">downloadFileUseJS</a></li><li><a href="global.html#easySessionStorage">easySessionStorage</a></li><li><a href="global.html#formatDate">formatDate</a></li><li><a href="global.html#isArray">isArray</a></li><li><a href="global.html#jsonParseSafely">jsonParseSafely</a></li><li><a href="global.html#msg">msg</a></li><li><a href="global.html#parse">parse</a></li><li><a href="global.html#stringify">stringify</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/Jairwin-L/utils" target="_blank" class="menu-item" id="forum_link" >Github</a></h2><h2><a href="https://www.npmjs.com/package/@jairwinl/utils" target="_blank" class="menu-item" id="forum_link" >NPM</a></h2><h3>Global</h3><ul><li><a href="global.html#appendQueriesToUrl">appendQueriesToUrl</a></li><li><a href="global.html#arrayToObject">arrayToObject</a></li><li><a href="global.html#box">box</a></li><li><a href="global.html#downloadFileUseJS">downloadFileUseJS</a></li><li><a href="global.html#easySessionStorage">easySessionStorage</a></li><li><a href="global.html#formatDate">formatDate</a></li><li><a href="global.html#getQueryString">getQueryString</a></li><li><a href="global.html#isArray">isArray</a></li><li><a href="global.html#jsonParseSafely">jsonParseSafely</a></li><li><a href="global.html#msg">msg</a></li><li><a href="global.html#parse">parse</a></li><li><a href="global.html#stringify">stringify</a></li></ul>
 </nav>
 
 <div id="main">
     
-    <h1 class="page-title">formatDate.js</h1>
+    <h1 class="page-title">format-date.js</h1>
     
 
     
@@ -66,18 +66,19 @@ var timestamp = new Date().valueOf();
  * formatDate();
  *
  */
-export function formatDate(timeStamp, format) {
+function formatDate(timeStamp, format) {
     if (timeStamp === void 0) { timeStamp = timestamp; }
     if (format === void 0) { format = 'YYYY-MM-DD HH:mm:ss'; }
     // 非number类型时间戳格式，直接输出
     if (typeof timeStamp !== 'number') {
         // eg：node：1655-02-08 00:00:00；Browserify：1659-07-22 23:24:07
-        console.log('[@jairwinl/utils]非number类型时间戳格式，直接输出----->：', timeStamp);
+        console.warn('[@jairwinl/utils]非number类型时间戳格式，直接输出----->：', timeStamp);
         return String(timeStamp);
     }
     return dayjs(timeStamp).format(format);
 }
-//# sourceMappingURL=formatDate.js.map</code></pre>
+export default formatDate;
+//# sourceMappingURL=format-date.js.map</code></pre>
         </article>
     </section>
 

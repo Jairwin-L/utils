@@ -1,6 +1,6 @@
 import isPlainObject from 'lodash.isplainobject';
 import isFunction from 'lodash.isfunction';
-import { isArray } from './isArray';
+import { default as isArray } from './is-array';
 
 interface IStringifyOptions {
   sep?: string;
@@ -44,7 +44,7 @@ function stringifyPrimitive(v: string | number | boolean | object): string | num
  * stringify({key: 'value', undef: undefined })
  * // => 'key=value&undef='
  */
-export function stringify(obj: object, options: IStringifyOptions = {}): string {
+function stringify(obj: object, options: IStringifyOptions = {}): string {
   if (!isPlainObject(obj)) {
     return '';
   }
@@ -89,3 +89,5 @@ export function stringify(obj: object, options: IStringifyOptions = {}): string 
   }
   return fields;
 }
+
+export default stringify;
